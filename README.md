@@ -10,14 +10,16 @@ at, so it says exactly what the uploader touches and nothing it does not.
 
 ## Done (2026-11-21)
 
-- Public repository **`hesamhakim/hesamhakim.github.io`** created.
-- These pages pushed to it. Commits use `hesamhakim@users.noreply.github.com` rather than your real
-  address, since a public repository's commit metadata is readable by anyone; GitHub still attributes them
-  to your account.
-- GitHub Pages enabled on `main` / root, built, and serving:
-  - <https://hesamhakim.github.io/>
-  - <https://hesamhakim.github.io/privacy.html>
-  - <https://hesamhakim.github.io/terms.html>
+- Public repository **`hesamhakim/phenomotion`** created, these pages pushed to it, GitHub Pages enabled
+  and serving:
+  - <https://hesamhakim.github.io/phenomotion/>
+  - <https://hesamhakim.github.io/phenomotion/privacy.html>
+  - <https://hesamhakim.github.io/phenomotion/terms.html>
+- Commits use `hesamhakim@users.noreply.github.com` rather than the real address, since commit metadata
+  on a public repository is readable by anyone; GitHub still attributes them to the account.
+- **The user-site root is not this project.** `hesamhakim.github.io/` returns 404. The repository of that
+  name was emptied of these pages and now holds only a `.nojekyll` and a README; it exists so that
+  Search Console's verification file can be served from the domain root, which is where Google looks.
 
 This folder is its own git repository, separate from the research one - the site is public and the
 research repo is not. `site/.git` is ignored by the outer repository.
@@ -29,17 +31,22 @@ the account that owns the Cloud project. Add a property of type **URL prefix**: 
 Choose either method and hand me the result - I can push it in seconds:
 
 - **HTML file**: it offers a file like `google1a2b3c4d5e.html`. Tell me its name and contents and I will
-  commit it to the site; then click Verify.
-- **HTML tag**: it gives a `<meta name="google-site-verification" content="...">`. Paste it to me and I
-  will put it in `index.html`'s `<head>`; then click Verify.
+  push it to the **`hesamhakim.github.io`** repository, so it serves from the domain root where Google
+  looks for it; then click Verify.
+- **HTML tag**: it gives a `<meta name="google-site-verification" content="...">`. That only works if the
+  property is the subdirectory `https://hesamhakim.github.io/phenomotion/`, since the tag has to be in the
+  page Google fetches. Paste it to me either way and I will put it where it belongs.
+
+Verify the **domain-root** property (`https://hesamhakim.github.io/`) if Google gives you the choice -
+that is the form the Authorized domains field wants.
 
 **2. Fill the Branding page** (Google Auth Platform → Branding):
 
 | Field | Value |
 |---|---|
-| Application home page | `https://hesamhakim.github.io/` |
-| Application privacy policy link | `https://hesamhakim.github.io/privacy.html` |
-| Application terms of service link | `https://hesamhakim.github.io/terms.html` |
+| Application home page | `https://hesamhakim.github.io/phenomotion/` |
+| Application privacy policy link | `https://hesamhakim.github.io/phenomotion/privacy.html` |
+| Application terms of service link | `https://hesamhakim.github.io/phenomotion/terms.html` |
 | Authorized domains → Add domain | `hesamhakim.github.io` |
 
 Leave the **App logo** empty - uploading one forces the app into verification, which is not otherwise
@@ -70,7 +77,7 @@ an HTML comment marking the spot.
 ```bash
 cd /scratch/g/he301766/projects/PhenoMotion_visualization_ecosystem_for_biology/site
 # edit, then
-git add -A && git commit -m "..." && git push
+git add -A && git commit -m "..." && git push   # remote: hesamhakim/phenomotion
 ```
 
 Pages rebuilds within a minute or so.
